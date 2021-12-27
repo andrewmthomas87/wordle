@@ -7,7 +7,7 @@ interface IProps {
 }
 
 const Alphabet: React.FC<IProps> = ({ badLetters }) => (
-	<Stack direction="row" justifyContent="center" spacing={1} mb={3}>
+	<Stack direction="row" justifyContent="center" flexWrap="wrap" spacing={1} mb={3}>
 		{alphabet.map((c) => (
 			<Typography
 				key={c}
