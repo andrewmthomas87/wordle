@@ -10,7 +10,7 @@ interface IProps {
 const Nav: React.FC<IProps> = ({ colorMode, onToggleColorMode }) => (
 	<AppBar position="sticky" elevation={0}>
 		<Toolbar>
-			<Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+			<Typography variant="h6" component="div" fontFamily="'Shizuru', cursive" sx={{ flexGrow: 1 }}>
 				Wordle
 			</Typography>
 			<IconButton color="inherit" onClick={onToggleColorMode}>
