@@ -3,7 +3,7 @@ import raw from './words.txt?raw'
 
 const words = raw
 	.split('\n')
-	.filter((word) => word.length >= 3 && word.length <= 6)
+	.filter((word) => word.length >= 4 && word.length <= 8)
 	.map((word) => word.toUpperCase())
 
 const wordsSet = new Set<string>()
