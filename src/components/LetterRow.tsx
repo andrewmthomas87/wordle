@@ -52,7 +52,7 @@ const LetterRow: React.FC<IProps> = ({ length, onComplete }) => {
 	}
 
 	return (
-		<Stack direction="row" spacing={1}>
+		<Stack direction="row" spacing={2} mb={3}>
 			{Array(length)
 				.fill(0)
 				.map((_, i) => (

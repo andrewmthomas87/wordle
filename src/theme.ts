@@ -1,7 +1,7 @@
 import { createTheme, PaletteOptions } from '@mui/material'
 
 const palette: PaletteOptions = {
-	primary: { main: '#5f27cd' },
+	primary: { main: '#6c5ce7' },
 }
 
 const darkTheme = createTheme({

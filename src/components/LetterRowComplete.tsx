@@ -1,7 +1,7 @@
 import { Input, Stack } from '@mui/material'
 import { useMemo } from 'react'
 
-const resultBackgroundColor = ['#576574', '#10ac84', '#ff9f43']
+const resultBackgroundColor = ['', '#00b894', '#fdcb6e']
 
 interface IProps {
 	target: string
