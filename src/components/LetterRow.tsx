@@ -1,6 +1,7 @@
 import { Stack } from '@mui/material'
 import { useState } from 'react'
 import { isValidWord } from 'words'
+import { isValidWordRus } from 'wordsRus'
 import LetterInput from './LetterInput'
 
 interface IProps {
@@ -45,7 +46,10 @@ const LetterRow: React.FC<IProps> = ({ lang, length, onComplete }) => {
 	}
 
 	const onEnter = () => {
-		if (value.length === length && isValidWord(value)) {
+		if (
+			value.length === length &&
+			((lang === 'en' && isValidWord(value)) || (lang === 'ru' && isValidWordRus(value)))
+		) {
 			onComplete(value)
 		} else {
 			setIsInvalid(true)
