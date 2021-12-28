@@ -42,7 +42,6 @@ const Wordle: React.FC = () => {
 					Reset
 				</Button>
 			</Box>
-			<Alphabet badLetters={badLetters} />
 			{complete.map((guess, i) => (
 				<LetterRowComplete key={i} guess={guess} target={word} />
 			))}
@@ -53,6 +52,7 @@ const Wordle: React.FC = () => {
 			) : (
 				<LetterRow key={complete.length} length={word.length} onComplete={onComplete} />
 			)}
+			<Alphabet badLetters={badLetters} />
 		</Container>
 	)
 }

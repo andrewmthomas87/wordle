@@ -11,7 +11,7 @@ const Alphabet: React.FC<IProps> = ({ badLetters }) => (
 		{alphabet.map((c) => (
 			<Typography
 				key={c}
-				variant="body2"
+				variant="body1"
 				sx={{
 					opacity: badLetters.has(c) ? 0.5 : 1,
 					textDecoration: badLetters.has(c) ? 'line-through' : undefined,
