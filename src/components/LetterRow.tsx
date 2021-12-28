@@ -4,12 +4,13 @@ import { isValidWord } from 'words'
 import LetterInput from './LetterInput'
 
 interface IProps {
+	lang: 'en' | 'ru'
 	length: number
 
 	onComplete(value: string): void
 }
 
-const LetterRow: React.FC<IProps> = ({ length, onComplete }) => {
+const LetterRow: React.FC<IProps> = ({ lang, length, onComplete }) => {
 	const [value, setValue] = useState('')
 	const [isInvalid, setIsInvalid] = useState(false)
 	const [focused, setFocused] = useState(0)
@@ -58,6 +59,7 @@ const LetterRow: React.FC<IProps> = ({ length, onComplete }) => {
 				.map((_, i) => (
 					<LetterInput
 						key={i}
+						lang={lang}
 						length={length}
 						c={value.length > i ? value.charAt(i) : ''}
 						isInvalid={isInvalid}

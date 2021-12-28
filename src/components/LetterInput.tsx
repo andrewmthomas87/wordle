@@ -2,8 +2,10 @@ import { Input } from '@mui/material'
 import React, { useEffect, useRef } from 'react'
 
 const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+const alphabetRus = 'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'
 
 interface IProps {
+	lang: 'en' | 'ru'
 	length: number
 	c: string
 	isInvalid: boolean
@@ -14,7 +16,7 @@ interface IProps {
 	onFocus(): void
 }
 
-const LetterInput: React.FC<IProps> = ({ length, c, isInvalid, isFocused, onSet, onEnter, onFocus }) => {
+const LetterInput: React.FC<IProps> = ({ lang, length, c, isInvalid, isFocused, onSet, onEnter, onFocus }) => {
 	const ref = useRef<HTMLInputElement>()
 
 	useEffect(() => {
@@ -33,7 +35,7 @@ const LetterInput: React.FC<IProps> = ({ length, c, isInvalid, isFocused, onSet,
 		}
 
 		const c = e.key.toUpperCase()
-		if (alphabet.indexOf(c) > -1) {
+		if ((lang === 'en' && alphabet.indexOf(c) > -1) || (lang === 'ru' && alphabetRus.indexOf(c) > -1)) {
 			onSet(c)
 		}
 	}

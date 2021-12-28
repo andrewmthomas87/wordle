@@ -1,12 +1,17 @@
 import { Box, Button, Container, Typography } from '@mui/material'
 import { useState } from 'react'
 import { randomCommonWord } from 'words'
+import { randomCommonWordRus } from 'wordsRus'
 import Alphabet from './Alphabet'
 import LetterRow from './LetterRow'
 import LetterRowComplete from './LetterRowComplete'
 
-const Wordle: React.FC = () => {
-	const [word, setWord] = useState(() => randomCommonWord())
+interface IProps {
+	lang: 'en' | 'ru'
+}
+
+const Wordle: React.FC<IProps> = ({ lang }) => {
+	const [word, setWord] = useState(() => (lang === 'en' ? randomCommonWord() : randomCommonWordRus()))
 	const [complete, setComplete] = useState<string[]>([])
 	const [badLetters, setBadLetters] = useState<Set<string>>(() => new Set())
 	const [isWon, setIsWon] = useState(false)
@@ -29,7 +34,7 @@ const Wordle: React.FC = () => {
 	}
 
 	const onReset = () => {
-		setWord(randomCommonWord())
+		setWord(lang === 'en' ? randomCommonWord() : randomCommonWordRus())
 		setComplete([])
 		setBadLetters(new Set())
 		setIsWon(false)
@@ -50,9 +55,9 @@ const Wordle: React.FC = () => {
 					You won after {complete.length} guesses!
 				</Typography>
 			) : (
-				<LetterRow key={complete.length} length={word.length} onComplete={onComplete} />
+				<LetterRow key={complete.length} lang={lang} length={word.length} onComplete={onComplete} />
 			)}
-			<Alphabet badLetters={badLetters} />
+			<Alphabet lang={lang} badLetters={badLetters} />
 		</Container>
 	)
 }
