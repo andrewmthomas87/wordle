@@ -4,6 +4,7 @@ import React, { useEffect, useRef } from 'react'
 const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
 interface IProps {
+	length: number
 	c: string
 	isInvalid: boolean
 	isFocused: boolean
@@ -13,7 +14,7 @@ interface IProps {
 	onFocus(): void
 }
 
-const LetterInput: React.FC<IProps> = ({ c, isInvalid, isFocused, onSet, onEnter, onFocus }) => {
+const LetterInput: React.FC<IProps> = ({ length, c, isInvalid, isFocused, onSet, onEnter, onFocus }) => {
 	const ref = useRef<HTMLInputElement>()
 
 	useEffect(() => {
@@ -43,7 +44,7 @@ const LetterInput: React.FC<IProps> = ({ c, isInvalid, isFocused, onSet, onEnter
 			value={c}
 			error={isInvalid}
 			inputProps={{ style: { textAlign: 'center' } }}
-			sx={{ fontSize: 45 }}
+			sx={{ fontSize: length > 5 ? 35 : 45 }}
 			onKeyDown={onKeyDown}
 			onFocus={onFocus}
 		/>

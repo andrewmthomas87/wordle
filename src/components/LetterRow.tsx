@@ -58,6 +58,7 @@ const LetterRow: React.FC<IProps> = ({ length, onComplete }) => {
 				.map((_, i) => (
 					<LetterInput
 						key={i}
+						length={length}
 						c={value.length > i ? value.charAt(i) : ''}
 						isInvalid={isInvalid}
 						isFocused={focused === i}

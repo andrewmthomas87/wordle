@@ -44,7 +44,7 @@ const LetterRowComplete: React.FC<IProps> = ({ target, guess }) => {
 					readOnly
 					inputProps={{ style: { textAlign: 'center' } }}
 					sx={{
-						fontSize: 45,
+						fontSize: target.length > 5 ? 35 : 45,
 						backgroundColor: resultBackgroundColor[r],
 					}}
 				/>
